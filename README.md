@@ -10,3 +10,5 @@ TODO:
 - bean injection via constructor (no setters)
 - use one of the PrimeFaces theme
 - remove the table in the input form
+- unit tests
+- sonar
