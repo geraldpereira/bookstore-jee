@@ -1,42 +1,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>Welcome to the Bookstore</title>
-</h:head>
-<h:body>
-	<h:form>
-		<h:outputText value="Books : "></h:outputText>
-		<p:dataTable id="books" var="book" value="#{bookMB.bookList}" style="width: 10%">
-			<p:column>
-				<f:facet name="header">
-					<h:outputText value="ID" />
-				</f:facet>
-				<h:outputText value="#{book.id}" />
-			</p:column>
-			<p:column>
-				<f:facet name="header">
-					<h:outputText value="Title" />
-				</f:facet>
-				<h:outputText value="#{book.title}" />
-			</p:column>
-			<p:column>
-				<f:facet name="header">
-					<h:outputText value="Author" />
-				</f:facet>
-				<h:outputText value="#{book.author}" />
-			</p:column>
-			<p:column>
-				<f:facet name="header">
-					<h:outputText value="Release Date" />
-				</f:facet>
-				<h:outputText value="#{book.releaseDate}">
-					<f:convertDateTime pattern="dd/MM/yyyy"/>
-				</h:outputText>
-			</p:column>
-		</p:dataTable>
-	</h:form>
-</h:body>
 
+<ui:composition template="/templates/afterdark.xhtml">
+	<ui:define name="pageTitle">Welcome to the Bookstore</ui:define>
+	<ui:define name="contentPrimary">
+		<h:form>
+			<h:outputText value="Books : "></h:outputText>
+			<p:dataTable id="books" var="book" value="#{bookMB.bookList}"
+				style="width: 10%">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="ID" />
+					</f:facet>
+					<h:outputText value="#{book.id}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Title" />
+					</f:facet>
+					<h:outputText value="#{book.title}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Author" />
+					</f:facet>
+					<h:outputText value="#{book.author}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Release Date" />
+					</f:facet>
+					<h:outputText value="#{book.releaseDate}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>

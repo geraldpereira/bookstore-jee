@@ -82,6 +82,12 @@
 
 		<!-- Primefaces library -->
 		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>afterdark</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>3.1.1</version>

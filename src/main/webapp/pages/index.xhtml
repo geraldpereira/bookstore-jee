@@ -1,39 +1,41 @@
-<html xmlns="http://www.w3.org/1999/xhtml"  
-     xmlns:h="http://java.sun.com/jsf/html"      
-      xmlns:f="http://java.sun.com/jsf/core"
-     xmlns:p="http://primefaces.org/ui">  
- <h:head><title>Welcome to the Bookstore</title></h:head>  
- <h:body>
-     <h:form>      
-	     <table> 
-		     <tr>
-		     	<td><h:outputLabel for="title" value="Title : " /></td>
-		     	<td><p:inputText id="title" value="#{bookMB.title}">
-		     			<f:validateLength minimum="3" maximun="45"/> 
-		     			<p:ajax event="blur" update="titleMsg" />
-		     		</p:inputText>
-		     		<p:message id="titleMsg" for="title"/> 
-		     	</td>
-		     </tr>
-		     <tr>
-		     	<td><h:outputLabel for="author" value="Author : " /></td>   
-		     	<td><p:inputText id="author" value="#{bookMB.author}"> 
-		     			<f:validateLength minimum="3" maximun="45" /> 
-		     			<p:ajax event="blur" update="authorMsg" />  
-		     		</p:inputText>
-		     		<p:message id="authorMsg" for="author"/> 
-		     	</td>    
-		     </tr>
-		     <tr>
-		     	<td><h:outputLabel for="releaseDate" value="Release Date : " /></td>   
-		     	<td><p:calendar id="releaseDate" value="#{bookMB.releaseDate}"/></td>    
-		     </tr>
-		                 
-	         <tr>
-		     	<td><p:commandButton id="addBook" value="Add" action="#{bookMB.addBook}" ajax="false"/></td>
-		     	<td><p:commandButton id="reset" value="Reset" action="#{bookMB.reset}" ajax="false"/></td>
-		     </tr>   
-	     </table>
-     </h:form>      
-</h:body>
-</html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/afterdark.xhtml">
+	<ui:define name="pageTitle">Welcome to the Bookstore</ui:define>
+	<ui:define name="contentPrimary">
+		<h:form>
+			<table>
+				<tr>
+					<td><h:outputLabel for="title" value="Title : " /></td>
+					<td><p:inputText id="title" value="#{bookMB.title}">
+							<f:validateLength minimum="3" maximun="45" />
+							<p:ajax event="blur" update="titleMsg" />
+						</p:inputText> <p:message id="titleMsg" for="title" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="author" value="Author : " /></td>
+					<td><p:inputText id="author" value="#{bookMB.author}">
+							<f:validateLength minimum="3" maximun="45" />
+							<p:ajax event="blur" update="authorMsg" />
+						</p:inputText> <p:message id="authorMsg" for="author" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="releaseDate" value="Release Date : " /></td>
+					<td><p:calendar id="releaseDate" value="#{bookMB.releaseDate}" /></td>
+				</tr>
+
+				<tr>
+					<td><p:commandButton id="addBook" value="Add"
+							action="#{bookMB.addBook}" ajax="false" /></td>
+					<td><p:commandButton id="reset" value="Reset"
+							action="#{bookMB.reset}" ajax="false" /></td>
+				</tr>
+			</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
