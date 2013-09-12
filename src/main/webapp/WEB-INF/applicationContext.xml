@@ -14,12 +14,12 @@
 	
 	<!-- Book Service Declaration -->
 	<bean id="BookService" class="fr.gpereira.bookstore.service.BookServiceImpl">
-		<property name="bookDAO" ref="BookDAO" />
+		<constructor-arg ref="BookDAO"/>
 	</bean>
 	
 	<!-- Book DAO Declaration -->
 	<bean id="BookDAO" class="fr.gpereira.bookstore.dao.BookDAOImpl">
-		<property name="sessionFactory" ref="SessionFactory" />
+		<constructor-arg ref="SessionFactory"/>
 	</bean>
 	
 	<!-- Data Source Declaration -->

@@ -15,10 +15,17 @@ import fr.gpereira.bookstore.entity.Book;
 @Transactional(readOnly = true)
 public class BookServiceImpl implements BookService {
 
-	// BookDAO is injected ... Spring style
-	// TODO There should be a way to do it guice style (using this object constructor) -> annotations ?
-	BookDAO bookDAO;
+	private final BookDAO bookDAO;
 	
+	/**
+	 * Constructor
+	 * @param bookDAO
+	 */
+	public BookServiceImpl(BookDAO bookDAO) {
+		super();
+		this.bookDAO = bookDAO;
+	}
+
 	/**
 	 * Add Book
 	 * 
@@ -27,7 +34,7 @@ public class BookServiceImpl implements BookService {
 	@Transactional(readOnly = false)
 	@Override
 	public void addBook(Book book) {
-		getBookDAO().addBook(book);
+		bookDAO.addBook(book);
 	}
 
 	/**
@@ -38,7 +45,7 @@ public class BookServiceImpl implements BookService {
 	@Transactional(readOnly = false)
 	@Override
 	public void deleteBook(Book book) {
-		getBookDAO().deleteBook(book);
+		bookDAO.deleteBook(book);
 	}
 	
 	/**
@@ -49,7 +56,7 @@ public class BookServiceImpl implements BookService {
 	@Transactional(readOnly = false)
 	@Override
 	public void updateBook(Book book) {
-		getBookDAO().updateBook(book);
+		bookDAO.updateBook(book);
 	}
 	
 	/**
@@ -59,7 +66,7 @@ public class BookServiceImpl implements BookService {
 	 */
 	@Override
 	public Book getBookById(int id) {
-		return getBookDAO().getBookById(id);
+		return bookDAO.getBookById(id);
 	}
 
 	/**
@@ -68,25 +75,7 @@ public class BookServiceImpl implements BookService {
 	 */
 	@Override
 	public List<Book> getBooks() {	
-		return getBookDAO().getBooks();
-	}
-
-	/**
-	 * Get Book DAO
-	 * 
-	 * @return IBookDAO - Book DAO
-	 */
-	public BookDAO getBookDAO() {
-		return bookDAO;
-	}
-
-	/**
-	 * Set Book DAO
-	 * 
-	 * @param IBookDAO - Book DAO
-	 */
-	public void setBookDAO(BookDAO bookDAO) {
-		this.bookDAO = bookDAO;
+		return bookDAO.getBooks();
 	}
 
 }

@@ -7,52 +7,41 @@ import org.hibernate.SessionFactory;
 import fr.gpereira.bookstore.entity.Book;
 
 public class BookDAOImpl implements BookDAO {
-	private SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
 
 	/**
-	 * Get Hibernate Session Factory
-	 * 
-	 * @return SessionFactory - Hibernate Session Factory
+	 * Constructor
+	 * @param sessionFactory
 	 */
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-
-	/**
-	 * Set Hibernate Session Factory
-	 * 
-	 * @param SessionFactory
-	 *            - Hibernate Session Factory
-	 */
-	public void setSessionFactory(SessionFactory sessionFactory) {
+	public BookDAOImpl(final SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
-
+	
 	@Override
 	public void addBook(Book book) {
-		getSessionFactory().getCurrentSession().save(book);
+		sessionFactory.getCurrentSession().save(book);
 	}
 
 	@Override
 	public void deleteBook(Book book) {
-		getSessionFactory().getCurrentSession().delete(book);
+		sessionFactory.getCurrentSession().delete(book);
 	}
 
 	@Override
 	public void updateBook(Book book) {
-		getSessionFactory().getCurrentSession().update(book);
+		sessionFactory.getCurrentSession().update(book);
 	}
 
 	@Override
 	public Book getBookById(int id) {
-		List<Book> list = (List<Book>) getSessionFactory().getCurrentSession()
+		List<Book> list = (List<Book>) sessionFactory.getCurrentSession()
 				.createQuery("from Book where id=?").setParameter(0, id).list();
 		return list.get(0);
 	}
 
 	@Override
 	public List<Book> getBooks() {
-		List<Book> list = (List<Book>) getSessionFactory().getCurrentSession()
+		List<Book> list = (List<Book>) sessionFactory.getCurrentSession()
 				.createQuery("from Book").list();
 		return list;
 	}
