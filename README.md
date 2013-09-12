@@ -7,7 +7,6 @@ Technos: Hibernate, H2, JSF2, PrimeFaces, Spring
 
 
 TODO:
-- use one of the PrimeFaces theme (bootstrap ?)
-- remove the table in the input form
+- use PrimeFaces bootstrap theme and layout the template page using bootstrap : https://github.com/soluvas/primefaces-bootstrap
 - unit tests
 - sonar
