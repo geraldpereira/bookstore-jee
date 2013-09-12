@@ -27,6 +27,14 @@
 				</f:facet>
 				<h:outputText value="#{book.author}" />
 			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Release Date" />
+				</f:facet>
+				<h:outputText value="#{book.releaseDate}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:outputText>
+			</p:column>
 		</p:dataTable>
 	</h:form>
 </h:body>

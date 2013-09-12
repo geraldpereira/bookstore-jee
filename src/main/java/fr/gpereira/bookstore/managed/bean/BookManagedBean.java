@@ -64,6 +64,7 @@ public class BookManagedBean implements Serializable {
 	public void reset() {
 		this.setTitle("");
 		this.setAuthor("");
+		this.setReleaseDate(new Date());
 	}
 	
 	/**

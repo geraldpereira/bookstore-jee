@@ -6,15 +6,6 @@
  <h:body>
      <h:form>      
 	     <table> 
-		     <!-- <tr>
-		     	<td><h:outputLabel for="id" value="Id : " /></td>
-		     	<td><p:inputText id="id" value="#{bookMB.id}">
-		     			<f:converter converterId="javax.faces.Integer"/>
-		     		    <p:ajax event="blur" update="idMsg" />
-		     		</p:inputText>
-		     		<p:message id="idMsg" for="id"/> 
-		     	</td>
-		     </tr> -->
 		     <tr>
 		     	<td><h:outputLabel for="title" value="Title : " /></td>
 		     	<td><p:inputText id="title" value="#{bookMB.title}">
@@ -32,7 +23,12 @@
 		     		</p:inputText>
 		     		<p:message id="authorMsg" for="author"/> 
 		     	</td>    
-		     </tr>            
+		     </tr>
+		     <tr>
+		     	<td><h:outputLabel for="releaseDate" value="Release Date : " /></td>   
+		     	<td><p:calendar id="releaseDate" value="#{bookMB.releaseDate}"/></td>    
+		     </tr>
+		                 
 	         <tr>
 		     	<td><p:commandButton id="addBook" value="Add" action="#{bookMB.addBook}" ajax="false"/></td>
 		     	<td><p:commandButton id="reset" value="Reset" action="#{bookMB.reset}" ajax="false"/></td>
