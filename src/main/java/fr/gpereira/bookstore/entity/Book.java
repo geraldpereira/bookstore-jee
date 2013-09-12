@@ -23,7 +23,7 @@ import com.google.common.base.Objects;
 @Entity
 @NamedQueries({ @NamedQuery(name = Book.ALL, query = "SELECT b FROM Book b "),
 		@NamedQuery(name = Book.TOTAL, query = "SELECT COUNT(b) FROM Book b") })
-public class Book implements Serializable {
+public final class Book implements Serializable {
 
 	public final static String ALL = "Book.populateBook";
 	public final static String TOTAL = "Book.countBooksTotal";
@@ -41,6 +41,22 @@ public class Book implements Serializable {
 
 	@Column
 	private Date releaseDate;
+
+	/**
+	 * Default constructor
+	 */
+	public Book() {
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param id
+	 */
+	public Book(Integer id) {
+		super();
+		this.id = id;
+	}
 
 	/**
 	 * Get Id
